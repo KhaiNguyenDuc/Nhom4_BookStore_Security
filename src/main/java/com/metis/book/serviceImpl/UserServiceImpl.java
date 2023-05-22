@@ -235,14 +235,18 @@ public class UserServiceImpl implements IUserService {
 	public void updateProfile(ProfileForm profileForm) {
 
 		
-		log.error("Go here");
+
 		// Get user
-		User user = userRepository.findByEmail(profileForm.getEmail());
-		if (Objects.isNull(user)) {
-			log.error(AppConstant.USER_NOT_FOUND + profileForm.getEmail());
-		}
-		log.error("User here");
-		log.error(user.getEmail());
+//		User user = userRepository.findByEmail(profileForm.getEmail());
+//		if (Objects.isNull(user)) {
+//			log.error(AppConstant.USER_NOT_FOUND + profileForm.getEmail());
+//		}
+
+		// Lấy người dùng đang đăng nhập hiện tại
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+		User user = userRepository.findById(userPrincipal.getId()).get();
+
 		// Get address
 		List<Address> addresses = addressRepository.findByUser(user);
 		Address address = new Address();
