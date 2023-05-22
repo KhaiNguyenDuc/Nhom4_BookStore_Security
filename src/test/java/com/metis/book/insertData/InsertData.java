@@ -997,7 +997,7 @@ public class InsertData {
 		}
 
 		// Create new Admin
-		User user = User.builder().username("khai").password(passwordEncoder.encode("123"))
+		User user = User.builder().username("khai").password(passwordEncoder.encode("9SV04Xr0y*pv"))
 				.email("duckhailinux@gmail.com").firstName("khai").lastName("Nguyen")
 				.birthday(LocalDate.of(2002, 06, 06)).gender(1) // 1: male, 2: female, 3: Not know
 				.phoneNumber("0783511740").enabled(Boolean.TRUE).roles(Arrays.asList(roleAdmin, roleUser)).cart(null)
