@@ -76,7 +76,7 @@ public class SecurityConfig {
 						.hasAnyAuthority("ROLE_ADMIN","ROLE_STAFF")
 					.anyRequest()
 						.permitAll();
-		http.headers().contentSecurityPolicy("default-src 'self'; script-src 'self' trusted-cdn.com");
+		http.headers().contentSecurityPolicy("trusted-cdn.com; frame-ancestors 'self'; form-action 'self'");
 		return http.build();
 	}
 	
