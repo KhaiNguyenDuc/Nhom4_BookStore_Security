@@ -114,7 +114,7 @@ public class AuthController {
 		// create new User
 		User savedUser = userService.createNewUser(registerRequest);
 		// Publish even send email with verification token
-		publishEvent(savedUser, request);
+		//publishEvent(savedUser, request);
 
 		// Get token
 		mav.addObject("email", savedUser.getEmail());

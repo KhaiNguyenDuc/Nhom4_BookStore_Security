@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Page Title</title>
+</head>
+
+<body>
+
+	<form id="imageForm" method="post" enctype="multipart/form-data" 
+	  action="http://localhost:8081/member/profile/upload-image">
+		<input id="image-upload" class="form-control" type="file" accept="image/png, image/jpeg" name="image"
+			onchange="document.getElementById('imageForm').submit();" />
+	</form>
+
+
+</body>
+
+</html>
