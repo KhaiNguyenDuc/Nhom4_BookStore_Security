@@ -37,7 +37,7 @@ public class SecurityConfig {
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
 			.cors()
-				.disable()
+				.disable() 
 			.formLogin()
 				.usernameParameter("email")
 				.loginPage("/auth/login")
@@ -76,6 +76,7 @@ public class SecurityConfig {
 						.hasAnyAuthority("ROLE_ADMIN","ROLE_STAFF")
 					.anyRequest()
 						.permitAll();
+		http.headers().contentSecurityPolicy("default-src 'self'; script-src 'self' trusted-cdn.com");
 		return http.build();
 	}
 	
