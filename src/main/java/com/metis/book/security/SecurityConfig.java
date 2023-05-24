@@ -23,16 +23,17 @@ public class SecurityConfig {
 
 	String[] allowURL = {
 			"/static/**",
-            "/css/**",
-            "/js/**",
-            "/images/**",
-            "/img/**",
-            "/scss/**",
-            "/vendor/**",
             "/auth/**",
             "/oauth2/**",
-            "/uploads/**"
+            "/uploads/categories/**",
+            "/uploads/blogs/**",
+            "/uploads/books/**"
             };
+	String [] allowURLAdmin = {
+			"/uploads/users/1.png",
+            "/uploads/**"
+	};
+	
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
@@ -68,6 +69,8 @@ public class SecurityConfig {
 				.authorizeRequests()
 					.antMatchers(allowURL)
 						.permitAll()
+					.antMatchers(allowURLAdmin)
+						.hasAuthority("ROLE_ADMIN")
 					.antMatchers("/member/**")
 						.hasAuthority("ROLE_USER")
 					.antMatchers("/admin/user/**")
