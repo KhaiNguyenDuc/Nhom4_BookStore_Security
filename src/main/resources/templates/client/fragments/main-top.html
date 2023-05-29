@@ -63,9 +63,13 @@
 									</a>
 									<small  th:text="${#authentication.getPrincipal().getUsername()}"></small>
 								   </div>
-									<span  >
-										<a th:href="@{/auth/logout}">Đăng xuất</a>
-									</span>
+									<form method="post" >
+											<p></p>
+										</form>
+										<form method="post" th:action="@{/auth/logout}">
+										  <input type="hidden" name="name" value="value" /> 
+										  <a onclick="this.parentNode.submit();">Đăng xuất</a>
+										</form>
 								</div>
 								
 								<div sec:authorize="!isAuthenticated()">

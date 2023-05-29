@@ -30,7 +30,7 @@ public class SecurityConfig {
             "/uploads/books/**"
             };
 	String [] allowURLAdmin = {
-			"/uploads/users/1.png",
+			"/uploads/users/**",
             "/uploads/**"
 	};
 	
